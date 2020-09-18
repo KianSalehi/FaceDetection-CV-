@@ -1,14 +1,9 @@
 import cv2
-from time import sleep
 #Cascade path and face cascade
 cascPath = 'haarcascade_frontalface_default.xml'
 faceCacade = cv2.CascadeClassifier(cascPath)
 video_capture = cv2.VideoCapture(0)
 while True:
-    if not video_capture.open():
-        print("Could not open the camera")
-        sleep(5)
-        pass
     ret, frame = video_capture.read()
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
     faces = faceCacade.detectMultiScale(
